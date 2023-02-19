@@ -1,4 +1,4 @@
-import {verifyHKIdCheckDigit} from "./index"
+import {verifyHKIdCheckDigit,verifyFullHKId} from "../hkid/hkid"
 
 test("Verify HKID (7 characters with number check digit) success", () => {
     expect(verifyHKIdCheckDigit("A123456", "3")).toBe(true);
@@ -39,4 +39,12 @@ test("HKID with 8 characters (One english character prefix and 7 number) and thr
 
 test("HKID with 9 characters (Two english character prefix and 7 number) and throw error", () => {
     expect(verifyHKIdCheckDigit("EU1357901", "7")).toBe(false);
+});
+
+test("HKID with 8 characters (One english character prefix and 7 number) and success", () => {
+    expect(verifyFullHKId("A1234563")).toBe(true);
+});
+
+test("HKID with 9 characters (Two english character prefix and 7 number) and success", () => {
+    expect(verifyFullHKId("EU1357902")).toBe(true);
 });

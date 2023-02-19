@@ -1,5 +1,3 @@
-import {HKId} from "./hkid";
+import {verifyHKIdCheckDigit,verifyFullHKId} from "./hkid/hkid";
 
-export const verifyHKIdCheckDigit = (hkidWithoutCheckDigit: string, checkDigit: string): boolean => {
-    return new HKId().verifyHKIdCheckDigit(hkidWithoutCheckDigit, checkDigit)
-}
+exports={verifyHKIdCheckDigit,verifyFullHKId}
